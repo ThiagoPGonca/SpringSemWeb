@@ -1,5 +1,6 @@
 package br.com.refspring.test;
 
+import br.com.refspring.test.model.DadosEpsodios;
 import br.com.refspring.test.model.DadosSeries;
 import br.com.refspring.test.service.APIConsumer;
 import br.com.refspring.test.service.ConvertData;
@@ -24,5 +25,7 @@ public class SpringSemWebApplication implements CommandLineRunner {
         ConvertData conversor = new ConvertData();
         DadosSeries dados = conversor.obterDados(json, DadosSeries.class);
         System.out.println(dados);
+        json = consumeAPI.obterDados(url); //add url com episodio
+        DadosEpsodios dadosEps = conversor.obterDados(json, DadosEpsodios.class);
     }
 }
